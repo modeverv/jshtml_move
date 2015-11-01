@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="//ja.gravatar.com/userimage/14611836/d5caef2a5366cf647fc8fba3430e5854.png" type="image/png">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title></title>
+    <style>
+      #img { position:absolute; }
+    </style>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>    
+    <script>
+      $(function(){
+      var offset = {x : $(document).width() / 2, y:$(document).height() / 2};
+      console.log(offset);      
+      var deg = 0;
+      var r = $(document).width() / 6;
+      console.log(r)
+      var rad = 0;
+      var point = {x:0,y:0};
+      var $target = $("#img");
+      var timer = setInterval(interval,50);
+      function interval(){
+        deg = (deg + 5) % 360
+        rad = deg * (Math.PI / 180);
+        point.x = offset.x + r * Math.cos(rad);
+        point.y = offset.y + r * Math.sin(rad);
+        $target.css("top",point.y);
+        $target.css("left",point.x);
+        //console.log(point);
+      }
+      });
+    </script>
+  </head>
+  <body>
+   <img id="img" src="//ja.gravatar.com/userimage/14611836/d5caef2a5366cf647fc8fba3430e5854.png"/>
+  </body>
+</html>
